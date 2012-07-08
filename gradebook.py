@@ -1,7 +1,7 @@
 import csv, shlex, subprocess
 
-file="1271_11.csv"
-name="C.E. Csar"
+file=".csv"
+name=""
 course="Math 1271"
 section="11"
 semester="Fall"
