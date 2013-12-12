@@ -19,17 +19,17 @@ def setup():
     section = raw_input('Section number: ')
     semester = raw_input('Semester: ')
     year = raw_input('Year: ')
-    firsthwcol = raw_input('%s' % deffirsthwcol)
+    firsthwcol = raw_input('First HW column: %s' % deffirsthwcol)
     firstwhcol = firsthwcol or deffirsthwcol
-    firstquizcol = raw_input('%s' %deffirstquizcol)
-    firstquizcol = firstquizcol or deffristquizcol
+    firstquizcol = raw_input('First quiz column: %s' %deffirstquizcol)
+    firstquizcol = firstquizcol or deffirstquizcol
     return (filename, name, course, section, semester, year, firsthwcol, firstquizcol)
 
 def outputname(course,section,semester,year):
     coursenum = int(search('{:g}',course).fixed[0]) #this assumes only one number appears
     return str(coursenum)+'_'+str(section)+'_'+semester+year #note that there's no extension!
 
-def writetable(filename,name,course,section,semester,year,gradelines,firsthwcol="HW1",firstquizcol="Quiz1"):
+def writetable(filename,name,course,section,semester,year,firsthwcol="HW1",firstquizcol="Quiz1",gradelines=''):
     header="\\documentclass[10pt]{article}\n \\usepackage[margin=.25in]{geometry}\n \\usepackage{longtable,rotating,fancyhdr,array,graphicx}\n \\renewcommand{\\tabcolsep}{2pt}\n \\begin{document}\n\\footnotesize"
 
 
@@ -72,14 +72,17 @@ def writetable(filename,name,course,section,semester,year,gradelines,firsthwcol=
     args=shlex.split(latexgrades)
     p=subprocess.call(args)
 
-def writebook(filename,name,course,section,semester,year,gradelines):
+def writebook(filename,name,course,section,semester,year,gradelines=''):
     bookfile = outputname(course,section,semester,year)+".tex"
-    tempfile = outputname(course,section,semester,year)+"temp.tex"
+    tempfile = outputname(course,section,semester,year)+"temp.pdf"
     book="\\documentclass{article}\n\\usepackage[margin=1in,landscape]{geometry}\n\\usepackage{pdfpages,fancyhdr}\n\\pagestyle{fancy}\n \\renewcommand{\headrulewidth}{0pt}\n\\rhead{\\footnotesize "+str(name)+"\\\\"+str(course)+", Section "+str(section)+"\\\\"+str(semester)+" "+year+"}\n\\cfoot{}\n\\lfoot{"+gradelines+"}\n\n\\begin{document}\n\\includepdf[landscape,scale=.95,pagecommand=\\thispagestyle{fancy},pages=-]{"+tempfile+"}\n\\end{document}"
     f = open(bookfile, 'w')
     f.write( book )
     f.close()
-    args.shlex.split("pdflatex "+bookfile)
+    args=shlex.split("pdflatex "+bookfile)
     p = subprocess.call(args)
 
+filename, name, course, section, semester, year, firsthwcol, firstquizcol = setup()
+writetable(filename,name,course,section,semester,year)
+writebook(filename,name,course,section,semester,year)
 print "Done"
