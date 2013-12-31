@@ -1,1 +1,5 @@
-Name	ID	HWTotal	QuizTotal	Midterm 1	Midterm 2	Midterm 3	MTTotal	Final Exam	FEGrade	Course total	Grade	HW1	HW2	HW3	HW5	HW6	HW7	HW8	HW9	HW10	HW11	HW12	HW13	HW14	Quiz 1	Quiz 2	Quiz 3	Quiz 4	Quiz 5	Quiz 6	Qui z7	Quiz 8	Quiz 9
+<<<<<<< HEAD
+Name	ID	HWTotal	QuizTotal	Midterm 1	Midterm 2	Midterm 3	MTTotal	Final Exam	FEGrade	Course total	Grade	HW1	HW2	HW3	HW5	HW6	HW7	HW8	HW9	HW10	HW11	HW12	HW13	HW14	Quiz 1	Quiz 2	Quiz 3	Quiz 4	Quiz 5	Quiz 6	Quiz 7	Quiz 8	Quiz 9
+=======
+ID	Name	HWTotal	QuizTotal	Midterm 1	Midterm 2	Midterm 3	MTTotal	Final Exam	FEGrade	Course total	Grade	HW1	HW2	HW3	HW5	HW6	HW7	HW8	HW9	HW10	HW11	HW12	HW13	HW14	Quiz 1	Quiz 2	Quiz 3	Quiz 4	Quiz 5	Quiz 6	Quiz7	Quiz 8	Quiz 9
+>>>>>>> 150b5f4850c28713d576c2c19a19951bd7388640
